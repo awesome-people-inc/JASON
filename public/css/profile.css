@@ -1,0 +1,103 @@
+a {
+    text-decoration: none;
+}
+.profile {
+    position: relative;
+    z-index: 0;
+    background: #fff;
+    color: #000;
+    width: 20em;
+    box-shadow: 1em 1em 2em rgba(128, 0, 0, 0.4);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: skewY(-8deg);
+    transform: skewY(-8deg);
+    transition: transform .3s;
+}
+.profile:hover {
+    box-shadow: 1em 1em 2em rgba(6, 6, 14, 0.5);
+    transform: scale(1.05);
+    -webkit-transform: skewY(-12deg);
+}
+.profile:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    top: 0;
+    z-index: -1;
+    background: #fff;
+    -webkit-transform: skewY(16deg);
+    transform: skewY(16deg);
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+}
+.profile header, .profile footer {
+    display: block;
+    text-align: center;
+}
+.profile .meta {
+    max-width: 90%;
+    border-bottom: 3px solid #e3e3e3;
+    margin: 0 auto;
+    font-weight: 700;
+}
+.profile .masthead {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+.profile .masthead:before, .profile .masthead:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+}
+.profile .masthead:before {
+    background: #89bdd3;
+    background-size: cover;
+    -webkit-transform: skewY(8deg);
+    transform: skewY(8deg);
+}
+.profile .masthead:after {
+    background: #e3e3e3;
+    -webkit-transform: skewY(-8deg);
+    transform: skewY(-8deg);
+}
+.profile .inner {
+    position: relative;
+    -webkit-transform: skewY(8deg);
+    transform: skewY(8deg);
+}
+.profile .name, .profile .title {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+.profile .name {
+    font-size: 2.25em;
+    color: #e05038;
+}
+.profile .title {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #c9c9c9;
+}
+.profile .avatar {
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    max-width: 120px;
+    height: auto;
+    box-shadow: 0 0 0 10px #fff, 6px 12px 0 10px rgba(227, 227, 227, 0.65), -6px -12px 0 10px rgba(154, 211, 222, 0.65);
+}
+.profile .content {
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 90%;
+}
