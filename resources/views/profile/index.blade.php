@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('css')
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     <style>
         .nav-item a:hover {
             box-shadow: 1em 1em 2em rgba(6, 6, 14, 0.5);

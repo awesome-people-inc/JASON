@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('css')
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-@endsection
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -128,10 +124,10 @@
             else {
                 $('#postingArea').hide();
             }
-            console.log(document.getElementsByClassName('post').innerHTML);
         }
 
         function sendPost() {
+            $('#postingArea').hide();
             axios.put('/post/put',{
                 postContent  : document.getElementById(postElementClass).innerText,
                 type     : type,
@@ -139,6 +135,17 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
             }).then(function () {
+                new Noty({
+                    type        : 'success',
+                    layout      : "topCenter",
+                    theme       : "nest",
+                    text        : "Posted!",
+                    timeout     : 2000,
+                    progressBar : true,
+                    closeWith   : 'click'
+                }).show();
+                $('.form-check-input').prop('checked', false);
+                document.getElementById(postElementClass).innerText = "Write Something..."
                 console.log("Yay!"); //reload posts
             }).catch(function (err) {
                 console.log(err);

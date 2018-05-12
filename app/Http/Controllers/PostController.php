@@ -35,7 +35,7 @@ class PostController extends Controller
             'likes' => 0
         ]);
 
-        return response(true);
+        return response(array('error' => false, 'msg' => 'Success'));
     }
 
     public function update()
