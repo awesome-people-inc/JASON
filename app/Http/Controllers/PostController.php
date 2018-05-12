@@ -28,9 +28,11 @@ class PostController extends Controller
             $type = 'THOUGHT';
         }
 
+        $content = strip_tags($request->postContent);
+
         Post::create([
             'user_id' => Auth::id(),
-            'content'  => $request->postContent,
+            'content'  => $content,
             'type' => $type,
             'likes' => 0
         ]);
@@ -43,4 +45,23 @@ class PostController extends Controller
 
     public function delete()
     {}
+
+    public function like(Request $request)
+    {
+        try
+        {
+            $validate = Validator::make($request->all(), [
+                'id' => 'required|integer'
+            ])->validate();
+
+            Post::whereKey($request->id)->increment('likes', 1);
+
+            return response(array('error' => false));
+        }
+        catch (\Exception $e)
+        {
+            \Log::error($e->getMessage());
+            return response(array('error' => true));
+        }
+    }
 }

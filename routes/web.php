@@ -33,4 +33,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/block/{user}', 'FriendshipController@block')->name('block');
 
     Route::put('/post/put', 'PostController@put');
+    Route::put('/post/like/', 'PostController@like');
 });

@@ -1,5 +1,28 @@
 @extends('layouts.app')
 
+@section('css')
+    <style>
+        body  {
+            overflow-y: hidden;
+        }
+
+        #feeds {
+            position: relative;
+            overflow-y: scroll !important;
+            overflow-x: hidden;
+        }
+
+        #feeds::-webkit-scrollbar {
+            width: 0px;  /* remove scrollbar space */
+            background: transparent;  /* optional: just make scrollbar invisible */
+        }
+
+        .likes {
+            font-size: 15px;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -21,8 +44,7 @@
                                 <h6 class="text-right">3m ago</h6>
                             </div>--}}
                         </div>
-                        <h1 class="display-4" id="post-crumb" contenteditable="true" maxlength="20">What's the update???</h1>
-                        <hr class="my-4">
+                        <h1 class="display-4" id="post-crumb" contenteditable="true" maxlength="20">Share Something...</h1>
                     </div>
                 </div>
                 <div class="zoom jumbotron-fluid" id="1">
@@ -38,14 +60,14 @@
                                 <h6 class="text-right">3m ago</h6>
                             </div>--}}
                         </div>
-                        <p class="lead" id="post-thought" contenteditable="true" maxlength="255">Post something amazing...</p>
+                        <p class="lead" id="post-thought" contenteditable="true" maxlength="255">Share Something...</p>
                         <hr class="my-4">
                     </div>
                 </div>
             </div>
             <hr style="background-color: red; height: 3px; border: none;">
             <div id="feeds">
-                @widget('feeds',[], Auth::id(), false)
+                @asyncWidget('feeds',[], Auth::id(), false)
             </div>
         </div>
         <div class="col-md-3">
@@ -90,10 +112,13 @@
     <script>
         let type = "";
         let postElementClass = "";
+        let height = 0;
+        const placeholder = "Share Something...";
+        const mainHeight = $(window).height();
         $(document).ready(function () {
-
+            height = mainHeight - 100;
+            $('#feeds').css('height', height+'px');
             $('#postingArea').hide();
-
             $('[contenteditable=true]').keydown(function(e) {
                 var max = $(this).attr("maxlength");
                 if (e.which != 8 && $(this).text().length > max) {
@@ -112,44 +137,87 @@
             type = document.querySelector('#postType:checked').value;
             $('#postingArea').show();
             if (type ===  "0") {
+                height = $('#feeds').height() - $('#postingArea').height() + 90;
                 $('#1').hide();
                 $('#0').show();
                 postElementClass = 'post-crumb';
             }
             else if (type === "1") {
+                height = $('#feeds').height() - $('#postingArea').height() + 121;
                 $('#0').hide();
                 $('#1').show();
                 postElementClass = 'post-thought';
             }
             else {
+                height = mainHeight - 100;
                 $('#postingArea').hide();
             }
+            $('#feeds').css('height', height+'px');
         }
 
         function sendPost() {
             $('#postingArea').hide();
-            axios.put('/post/put',{
-                postContent  : document.getElementById(postElementClass).innerText,
-                type     : type,
-                headers: {
+            height = mainHeight - 100;
+            $('#feeds').css('height', height+'px');
+            let content = document.getElementById(postElementClass).innerText;
+            if (content == placeholder || content == "" || content == " " ) {
+                return false;
+            }
+            else {
+                axios.put('/post/put',{
+                    postContent  : document.getElementById(postElementClass).innerText,
+                    type     : type,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                }).then(function () {
+                    new Noty({
+                        type        : 'success',
+                        layout      : "topCenter",
+                        theme       : "nest",
+                        text        : "Posted!",
+                        timeout     : 2000,
+                        progressBar : true,
+                        closeWith   : 'click'
+                    }).show();
+                    $('.form-check-input').prop('checked', false);
+                    document.getElementById(postElementClass).innerText = placeholder;
+                    console.log("Yay!"); //reload posts
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        }
+
+        function liker(postId) {
+            if (postId === undefined) {
+                return false;
+            }
+
+            axios.put('post/like', {
+                id      : postId,
+                headers : {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-            }).then(function () {
+                }
+            }).then(function (response) {
+                let text = "Some Error Occurred!";
+                let type = "error";
+                if (response.data.error === false) {
+                    text = "Post Liked!";
+                    type = "success";
+                }
                 new Noty({
-                    type        : 'success',
+                    type        : type,
                     layout      : "topCenter",
                     theme       : "nest",
-                    text        : "Posted!",
-                    timeout     : 2000,
+                    text        : text,
+                    timeout     : 1500,
                     progressBar : true,
                     closeWith   : 'click'
                 }).show();
-                $('.form-check-input').prop('checked', false);
-                document.getElementById(postElementClass).innerText = "Write Something..."
-                console.log("Yay!"); //reload posts
-            }).catch(function (err) {
+            }).catch(function () {
                 console.log(err);
-            });
+            })
         }
     </script>
 @endsection

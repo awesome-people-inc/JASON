@@ -14,6 +14,18 @@
                     </div>
                 </div>
                 <h1 class="display-4" id="post-crumb">{{ $post->content }}</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="#" class="badge badge-primary text-left" onclick="liker({{ $post->id }})">Likes : <span class="likes"> {{ $post->likes }}</span></a>
+                    </div>
+                    @if($post->user_id === Auth::id())
+                        <div class="col-sm-6 text-right">
+                            <a href="#" class="badge badge-info">Edit</a>
+                            &nbsp;&nbsp;
+                            <a href="#" class="badge badge-info">Delete</a>
+                        </div>
+                    @endif
+                </div>
                 <hr class="my-4">
             </div>
         </div>
@@ -33,6 +45,18 @@
                     </div>
                 </div>
                 <p class="lead" id="post-thought">{{ $post->content }}</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="#" class="badge badge-primary text-left" onclick="liker({{ $post->id }})">Likes : <span class="likes"> {{ $post->likes }}</span></a>
+                    </div>
+                    @if($post->user_id === Auth::id())
+                        <div class="col-sm-6 text-right">
+                            <a href="#" class="badge badge-info">Edit</a>
+                            &nbsp;&nbsp;
+                            <a href="#" class="badge badge-info">Delete</a>
+                        </div>
+                    @endif
+                </div>
                 <hr class="my-4">
             </div>
         </div>

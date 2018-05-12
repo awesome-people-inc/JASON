@@ -39,4 +39,9 @@ class Feeds extends AbstractWidget
             'posts' => $posts,
         ]);
     }
+
+    public function placeholder()
+    {
+        return "<h4>It's a slow day!</h4>";
+    }
 }
