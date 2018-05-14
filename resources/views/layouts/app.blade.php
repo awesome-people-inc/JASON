@@ -41,7 +41,7 @@
                     @else
                         <li class="nav-item mr-md-3">
                             <form class="form-inline">
-                                <input class="form-control-sm mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control-sm mr-sm-1" type="search" placeholder="Search" name="search" autocomplete="off" aria-label="Search">
                                 <button class="btn btn-outline-light btn-sm my-2 my-sm-1" type="submit">Search</button>
                             </form>
                         </li>
