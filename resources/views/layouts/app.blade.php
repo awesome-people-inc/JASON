@@ -13,10 +13,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-    {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">--}}
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--<link rel="stylesheet" href="{{ asset('css/main.css') }}">--}}
     @yield('css')
 </head>
 <body
@@ -45,11 +43,11 @@
                                 <button class="btn btn-outline-light btn-sm my-2 my-sm-1" type="submit">Search</button>
                             </form>
                         </li>
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href="#">
                                 Notifications <span class="badge badge-pill badge-light">10</span>
                             </a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Story Wall</a>
                         </li>
