@@ -35,7 +35,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-1">
-                                <img class="rounded-circle"  width="35px" height="35px" src="{{ url(Auth::user()->profile->avatar) }}" alt="" />
+                                <img class="rounded-circle"  width="35px" height="35px" src="{{ url(Auth::user()->avatar) }}" alt="" />
                             </div>
                             <div class="col-sm">
                                 <h4 class="text-left samaran">{{ Auth::user()->name }}</h4>
@@ -51,7 +51,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-1">
-                                <img class="rounded-circle"  width="35px" height="35px" src="{{ url(Auth::user()->profile->avatar) }}" alt="" />
+                                <img class="rounded-circle"  width="35px" height="35px" src="{{ url(Auth::user()->avatar) }}" alt="" />
                             </div>
                             <div class="col-sm">
                                 <h4 class="text-left samaran">{{ Auth::user()->name }}</h4>

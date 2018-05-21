@@ -47,6 +47,8 @@ if (token) {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+require('webrtc-adapter');
+window.Cookies = require('js-cookie');
 
 import Echo from 'laravel-echo'
 //

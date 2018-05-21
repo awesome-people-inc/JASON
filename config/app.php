@@ -152,6 +152,7 @@ return [
          */
         Arrilot\Widgets\ServiceProvider::class,
         Hootlex\Friendships\FriendshipsServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -123,13 +123,13 @@ class LoginController extends Controller
             'email' =>  $user->email,
             'provider' => $provider,
             'provider_id' => $user->id,
-            'uuid' => $id
+            'uuid' => $id,
+            'avatar' => $avatar
         ]);
 
         Profile::create([
             'user_id' => $user_data->id,
             'location' => $location,
-            'avatar' => $avatar,
             'headline' => $headline,
             $provider.'_url' => $url,
             $provider.'_id' => $user->id,

@@ -2,7 +2,7 @@
     <div class="inner">
         <header>
             <div class="masthead">
-                <img class="avatar" src="{{ url($user->profile->avatar) }}" alt="{{ $user->name }}" />
+                <img class="avatar" src="{{ url($user->avatar) }}" alt="{{ $user->name }}" />
             </div>
             <div class="meta">
                 <h3 class="name">{{ $user->name }}</h3>

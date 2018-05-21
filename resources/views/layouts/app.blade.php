@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'J A S O N') }}</title>
 
     <!-- Fonts -->
+    <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
@@ -38,10 +39,12 @@
                         </li>
                     @else
                         <li class="nav-item mr-md-3">
-                            <form class="form-inline">
-                                <input class="form-control-sm mr-sm-1" type="search" placeholder="Search" name="search" autocomplete="off" aria-label="Search">
-                                <button class="btn btn-outline-light btn-sm my-2 my-sm-1" type="submit">Search</button>
-                            </form>
+                            <div id="search-box">
+                                <form class="form-inline typeahead" role="search">
+                                    <input class="form-control-sm mr-sm-1" type="search" placeholder="Search" name="search" autocomplete="off" aria-label="Search">
+                                    <button class="btn btn-outline-light btn-sm my-2 my-sm-1" type="submit">Search</button>
+                                </form>
+                            </div>
                         </li>
                         {{--<li class="nav-item">
                             <a class="nav-link" href="#">
@@ -50,6 +53,9 @@
                         </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Story Wall</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('chat') }}">Messages</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profile', ['id' => Auth::user()->uuid]) }}">My Profile</a>

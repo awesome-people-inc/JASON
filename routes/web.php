@@ -34,4 +34,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::put('/post/put', 'PostController@put');
     Route::put('/post/like/', 'PostController@like');
+
+    Route::get('/messages', 'MessagesController@index')->name('chat');
 });
