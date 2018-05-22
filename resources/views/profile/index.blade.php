@@ -41,7 +41,21 @@
 
                     </div>
                     <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
-
+                        @foreach($user->getFriends() as $k => $v)
+                            <div class="jumbotron-fluid">
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <img class="rounded-circle"  width="35px" height="35px" src="{{ url($v->avatar) }}" alt="" />
+                                    </div>
+                                    <div class="col-sm">
+                                        <h4 class="text-left samaran">{{ $v->name }}</h4>
+                                    </div>
+                                    <div class="col-sm text-right">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('profile', ['id' => $v->uuid]) }}" role="button">Visit Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

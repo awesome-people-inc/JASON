@@ -103,6 +103,16 @@
                     </div>
                 </div>
             </div>
+            @if(count(Auth::user()->getFriendRequests()) > 0)
+                <div id="frRequests" style="padding-top: 10px">
+                    <h2 class="samaran">Pending Friend Requests</h2>
+                    <ul class="list-group">
+                        @foreach(Auth::user()->getFriendRequests() as $k => $v)
+                            @widget('friendRequest',[], $v->sender_id)
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
 </div>
@@ -187,6 +197,38 @@
                     console.log(err);
                 });
             }
+        }
+
+        function deletePost(id) {
+            if (id === undefined)  {
+                return false;
+            }
+            console.log(id);
+
+            axios.put('post/delete', {
+                id      : id,
+                headers : {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).then(function (response) {
+                let text = "Some Error Occurred!";
+                let type = "error";
+                if (response.data.error === false) {
+                    text = "Post Deleted!";
+                    type = "success";
+                }
+                new Noty({
+                    type        : type,
+                    layout      : "topCenter",
+                    theme       : "nest",
+                    text        : text,
+                    timeout     : 1500,
+                    progressBar : true,
+                    closeWith   : 'click'
+                }).show();
+            }).catch(function () {
+                console.log(err);
+            })
         }
 
         function liker(postId) {

@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::put('/post/put', 'PostController@put');
     Route::put('/post/like/', 'PostController@like');
+    Route::put('/post/delete', 'PostController@delete');
 
     Route::get('/messages', 'MessagesController@index')->name('chat');
+    Route::post('/search/user', 'SearchController@index')->name('search');
 });

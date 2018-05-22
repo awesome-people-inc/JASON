@@ -48,12 +48,16 @@
                     <p class="lead" id="post-thought">{{ $post->content }}</p>
                     <div class="row">
                         <div class="col-sm-6">
-                            <a href="#" class="badge badge-primary text-left" onclick="liker({{ $post->id }})">Likes : <span class="likes"> {{ $post->likes }}</span></a>
+                            @if(Auth::id() === $post->user_id)
+                                <p class="badge badge-primary text-left">Likes : <span class="likes"> {{ $post->likes }}</span></p>
+                            @else
+                                <a href="#" class="badge badge-primary text-left" onclick="liker({{ $post->id }})">Likes : <span class="likes"> {{ $post->likes }}</span></a>
+                            @endif
                         </div>
                         @if($post->user_id === Auth::id())
                             <div class="col-sm-6 text-right">
-                                <a href="#" class="badge badge-info">Edit</a>
-                                <a href="#" class="badge badge-info">Delete</a>
+                                {{--<a href="#" class="badge badge-info">Edit</a>--}}
+                                <a href="#" onclick="deletePost({{ $post->id }})" class="badge badge-info">Delete</a>
                             </div>
                         @endif
                     </div>
@@ -65,7 +69,7 @@
 @else
     <div class="jumbotron-fluid">
         <div class="container-fluid">
-            <h1 class="display-4">No stories to display! <br> Start Making friends or Post one yourself!</h1>
+            <h1 class="display-4">No stories to display!</h1>
         </div>
     </div>
 @endif

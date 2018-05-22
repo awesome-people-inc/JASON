@@ -3,15 +3,13 @@
 namespace App;
 
 use Hootlex\Friendships\Traits\Friendable;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Scout\Searchable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use Friendable;
-    use Searchable;
     /**
      * The attributes that are mass assignable.
      *

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'J A S O N') }}</title>
+    <title>J.A.S.O.N</title>
 
     <!-- Fonts -->
     <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
@@ -40,7 +40,8 @@
                     @else
                         <li class="nav-item mr-md-3">
                             <div id="search-box">
-                                <form class="form-inline typeahead" role="search">
+                                <form class="form-inline" action="{{ route('search') }}" method="post" role="search">
+                                    {{ csrf_field() }}
                                     <input class="form-control-sm mr-sm-1" type="search" placeholder="Search" name="search" autocomplete="off" aria-label="Search">
                                     <button class="btn btn-outline-light btn-sm my-2 my-sm-1" type="submit">Search</button>
                                 </form>

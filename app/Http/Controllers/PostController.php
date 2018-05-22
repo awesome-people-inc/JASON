@@ -12,6 +12,11 @@ class PostController extends Controller
     /**
      * @param Request $request
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function put(Request $request)
     {
         $validate = Validator::make($request->all(), [
@@ -40,11 +45,21 @@ class PostController extends Controller
         return response(array('error' => false, 'msg' => 'Success'));
     }
 
-    public function update()
-    {}
+    public function update($id)
+    {
+    }
 
-    public function delete()
-    {}
+    public function delete(Request $request)
+    {
+        $id = $request->id;
+        $post = Post::whereKey((int)$id);
+        if ($post->user_id != Auth::id())
+        {
+            return response(array('error' => true, 'errorMsg' => 'Unauthorized!'));
+        }
+        $post->delete();
+        return response(array('error' => false, 'errorMsg' => 'Post Deleted!'));
+    }
 
     public function like(Request $request)
     {

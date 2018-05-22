@@ -102,7 +102,7 @@ class LoginController extends Controller
                     $provider.'_url' => $url
                 ]);
 
-                Profile::where('user_id', $authUser->id)->where('avatar', null)->update([
+                User::whereKey($authUser->id)->where('avatar', null)->update([
                     'avatar' => $avatar
                 ]);
             }

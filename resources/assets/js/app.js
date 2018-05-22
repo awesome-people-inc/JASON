@@ -13,24 +13,8 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-import VueChatScroll from 'vue-chat-scroll';
-import VueTimeago from 'vue-timeago';
-
-Vue.use(VueChatScroll);
-Vue.component('chat-room' , require('./components/laravel-video-chat/ChatRoom.vue'));
-Vue.component('group-chat-room', require('./components/laravel-video-chat/GroupChatRoom.vue'));
-Vue.component('video-section' , require('./components/laravel-video-chat/VideoSection.vue'));
-Vue.component('file-preview' , require('./components/laravel-video-chat/FilePreview.vue'));
-
-Vue.use(VueTimeago, {
-    name: 'timeago', // component name, `timeago` by default
-    locale: 'en-US',
-    locales: {
-        'en-US': require('date-fns/locale/en')
-    }
-})
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
+/*const app = new Vue({
     el: '#message-div'
-});
+});*/
