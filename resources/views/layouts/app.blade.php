@@ -55,9 +55,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Story Wall</a>
                         </li>
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href="{{ route('chat') }}">Messages</a>
-                        </li>
+                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profile', ['id' => Auth::user()->uuid]) }}">My Profile</a>
                         </li>
@@ -66,9 +66,9 @@
                                 Options<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                <li>
+                                {{--<li>
                                     <a class="dropdown-item zoom" href="#">Edit Profile</a>
-                                </li>
+                                </li>--}}
                                 <hr>
                                 <li>
                                     <a class="dropdown-item zoom" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

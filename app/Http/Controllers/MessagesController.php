@@ -9,14 +9,10 @@
 namespace App\Http\Controllers;
 
 
-use PhpJunior\LaravelVideoChat\Facades\Chat;
-
 class MessagesController extends Controller
 {
  public function index()
  {
-     Chat::startConversationWith(1);
-     $conversation = Chat::getConversationMessageById(1);
-     return view('messages')->with(['conversation' => $conversation]);
+     return view('messages');
  }
 }
