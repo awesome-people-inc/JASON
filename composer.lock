@@ -549,16 +549,16 @@
         },
         {
             "name": "hootlex/laravel-friendships",
-            "version": "v1.0.23",
+            "version": "v1.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hootlex/laravel-friendships.git",
-                "reference": "b9f9bf78bf3ee92ba35e10f755f84287ab9226d0"
+                "reference": "0100718545bad757006737c21a7b35dc5c52b443"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hootlex/laravel-friendships/zipball/b9f9bf78bf3ee92ba35e10f755f84287ab9226d0",
-                "reference": "b9f9bf78bf3ee92ba35e10f755f84287ab9226d0",
+                "url": "https://api.github.com/repos/hootlex/laravel-friendships/zipball/0100718545bad757006737c21a7b35dc5c52b443",
+                "reference": "0100718545bad757006737c21a7b35dc5c52b443",
                 "shasum": ""
             },
             "require": {
@@ -573,6 +573,13 @@
                 "phpunit/phpunit": "5.*"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hootlex\\Friendships\\FriendshipsServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Hootlex\\Friendships\\": "src/"
@@ -596,7 +603,7 @@
                 "friendships",
                 "laravel"
             ],
-            "time": "2017-07-17T12:25:59+00:00"
+            "time": "2018-07-03T09:16:10+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
