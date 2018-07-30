@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc1af5d8c79d225a0ca2f1bc7ff06e7a",
+    "content-hash": "d59ce6d17821e3a3f2549a17c2c0311a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -883,16 +883,16 @@
         },
         {
             "name": "laravel/scout",
-            "version": "v4.0.4",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "f1b5d65a7d4a70bafaba7ec996176e95341c44ec"
+                "reference": "9f06b9c4d77879d53cf1680740b7f8bf19f78279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/f1b5d65a7d4a70bafaba7ec996176e95341c44ec",
-                "reference": "f1b5d65a7d4a70bafaba7ec996176e95341c44ec",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/9f06b9c4d77879d53cf1680740b7f8bf19f78279",
+                "reference": "9f06b9c4d77879d53cf1680740b7f8bf19f78279",
                 "shasum": ""
             },
             "require": {
@@ -915,7 +915,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "5.0-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -944,7 +944,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2018-05-24T13:35:34+00:00"
+            "time": "2018-07-27T17:24:11+00:00"
         },
         {
             "name": "laravel/socialite",
