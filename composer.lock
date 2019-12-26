@@ -883,16 +883,16 @@
         },
         {
             "name": "laravel/scout",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "36070c3723084bbb3b66ff3834c4b336baa18748"
+                "reference": "ac7e8d2de8fba37473e3a802347d8f24141993cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/36070c3723084bbb3b66ff3834c4b336baa18748",
-                "reference": "36070c3723084bbb3b66ff3834c4b336baa18748",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/ac7e8d2de8fba37473e3a802347d8f24141993cd",
+                "reference": "ac7e8d2de8fba37473e3a802347d8f24141993cd",
                 "shasum": ""
             },
             "require": {
@@ -944,7 +944,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2018-07-31T21:59:26+00:00"
+            "time": "2018-08-05T18:16:13+00:00"
         },
         {
             "name": "laravel/socialite",
